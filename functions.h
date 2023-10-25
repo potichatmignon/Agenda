@@ -13,4 +13,5 @@ t_d_list create_empty_list(int);
 
 void displayList(t_d_list l);
 
+void displayLevelList(t_d_list liste,int n);
 #endif //AGENDA_FUNCTIONS_H
