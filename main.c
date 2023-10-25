@@ -10,13 +10,12 @@ int main() {
     printf("Combien de niveaux pour la liste :");
     scanf("%d",&val);
     liste = create_empty_list(val);
-    displayList(liste);
 
     t_d_cell * cell = create_cell(3,3);
     t_d_cell * cell2 = create_cell(4,3);
     insert_cell(cell,&liste);
     insert_cell(cell2,&liste);
-    displayLevelList(liste,0);
+    displayList(liste);
 
 
     return 0;

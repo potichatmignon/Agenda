@@ -14,10 +14,7 @@ t_d_list create_empty_list(int max_level) {
 
 void displayList(t_d_list l) {
     for(int i=0;i<l.max_level;i++) {
-
-        if (l.heads[i] == NULL) {
-            printf("[list head_%d @-]--> NULL\n", i);
-        }
+        displayLevelList(l,i);
     }
 }
 
@@ -28,7 +25,7 @@ void displayLevelList(t_d_list list, int n){
         printf("[%d|@-]-->",temp->value);
         temp = temp->next[n];
     }
-    printf("NULL");
+    printf("NULL\n");
 }
 
 t_d_cell* insert_cell(t_d_cell * cell, t_d_list *list) {
