@@ -12,7 +12,9 @@ typedef struct s_d_list
 {
     t_d_cell *head_0;
     t_d_cell *head_1;
+    int max_level;
 } t_d_list;
+
 
 
 #endif //AGENDA_CELL_H
