@@ -14,7 +14,7 @@ typedef struct s_d_list
     int max_level;
 } t_d_list;
 
-
+t_d_cell * create_cell(int,int);
 
 
 #endif //AGENDA_CELL_H
