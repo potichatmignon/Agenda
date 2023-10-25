@@ -6,8 +6,9 @@
 int main() {
     t_d_list liste;
     int val;
-    scanf("Combien de niveau pour la liste : %d",val);
+    printf("Combien de niveau pour la liste : ");
+    scanf("%d",val);
     liste = create_empty_list(val);
-    printf(liste.heads[0]);
+    displayList(liste);
     return 0;
 }

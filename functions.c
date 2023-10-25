@@ -10,5 +10,10 @@ t_d_list create_empty_list(int max_level) {
 }
 
 void displayList(t_d_list l) {
-    printf(l.heads[0]);
+    for(int i=0;i<l.max_level;i++) {
+
+        if (l.heads[i] == NULL) {
+            printf("[list head_%d @-]--> NULL", i);
+        }
+    }
 }
