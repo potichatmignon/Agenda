@@ -9,3 +9,4 @@ t_d_cell* create_cell(int val, int level) {
     cell->next = (t_d_cell**) malloc(level*sizeof(t_d_cell*));
     return cell;
 }
+
