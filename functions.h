@@ -13,5 +13,7 @@ t_d_list create_empty_list(int);
 
 void displayList(t_d_list l);
 
+void displayLevelList(t_d_list liste,int n);
+
 t_d_cell* insert_cell(t_d_cell * cell, t_d_list *list);
 #endif //AGENDA_FUNCTIONS_H

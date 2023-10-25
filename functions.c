@@ -11,6 +11,9 @@ t_d_list create_empty_list(int max_level) {
     }
     return list;
 }
+void displayLevelList(t_d_list liste,int n) {
+
+}
 
 void displayList(t_d_list l) {
     for(int i=0;i<l.max_level;i++) {
