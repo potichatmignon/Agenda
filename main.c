@@ -4,6 +4,7 @@
 #include <stdlib.h>
 
 int main() {
+
     t_d_list liste;
     int val;
     printf("Combien de niveau pour la liste : ");
