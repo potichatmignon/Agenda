@@ -11,6 +11,4 @@ typedef struct s_d_cell
 t_d_cell * create_cell(int,int);
 
 
-
-
 #endif //AGENDA_CELL_H
