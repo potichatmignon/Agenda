@@ -17,4 +17,5 @@ typedef struct s_d_list
 
 
 
+
 #endif //AGENDA_CELL_H
