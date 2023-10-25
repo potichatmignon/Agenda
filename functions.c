@@ -11,9 +11,6 @@ t_d_list create_empty_list(int max_level) {
     }
     return list;
 }
-void displayLevelList(t_d_list liste,int n) {
-
-}
 
 void displayList(t_d_list l) {
     for(int i=0;i<l.max_level;i++) {
@@ -24,7 +21,15 @@ void displayList(t_d_list l) {
     }
 }
 
-void displayCell(t_d_list list, int val){}
+void displayLevelList(t_d_list list, int n){
+    t_d_cell * temp = list.heads[n];
+    printf("[list->head_%d @-]-->",n);
+    while(temp!=NULL){
+        printf("[%d|@-]-->",temp->value);
+        temp = temp->next[n];
+    }
+    printf("NULL");
+}
 
 t_d_cell* insert_cell(t_d_cell * cell, t_d_list *list) {
     int level = cell->level;
