@@ -20,3 +20,9 @@ void displayList(t_d_list l) {
         }
     }
 }
+
+t_d_cell* insert_cell( t_d_cell cell, t_d_list *list) {
+
+    t_d_cell *temp_cell = list->heads[cell.value]->next;
+    list->heads[level]->next =
+}
