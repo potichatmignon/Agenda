@@ -21,8 +21,12 @@ void displayList(t_d_list l) {
     }
 }
 
-t_d_cell* insert_cell( t_d_cell cell, t_d_list *list) {
+void displayCell(t_d_list list, int val){}
 
-    t_d_cell *temp_cell = list->heads[cell.value]->next;
-    list->heads[level]->next =
+t_d_cell* insert_cell(t_d_cell * cell, t_d_list *list) {
+    int level = cell->level;
+    for(int i=0;i<level;i++){
+        cell->next[i] = list->heads[i];
+        list->heads[i] = cell;
+    }
 }
