@@ -15,7 +15,7 @@ void displayList(t_d_list l) {
     for(int i=0;i<l.max_level;i++) {
 
         if (l.heads[i] == NULL) {
-            printf("[list head_%d @-]--> NULL", i);
+            printf("[list head_%d @-]--> NULL\n", i);
         }
     }
 }
