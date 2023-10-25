@@ -10,8 +10,8 @@ typedef struct s_d_cell
 
 typedef struct s_d_list
 {
-    t_d_cell *head_0;
-    t_d_cell *head_1;
+    t_d_cell* *heads;
+    int max_level;
 } t_d_list;
 
 
