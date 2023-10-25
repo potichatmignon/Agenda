@@ -11,5 +11,11 @@ int main() {
     scanf("%d",&val);
     liste = create_empty_list(val);
     displayList(liste);
+
+    t_d_cell * cell = create_cell(3,3);
+    insert_cell(cell,&liste);
+    printf("%d",liste.heads[3]->value);
+
+
     return 0;
 }
