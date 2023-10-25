@@ -4,8 +4,8 @@
 typedef struct s_d_cell
 {
     int value;
-    struct s_d_cell *next_0;
-    struct s_d_cell *next_1;
+    int level;
+    struct s_d_cell* *next;
 } t_d_cell;
 
 typedef struct s_d_list
