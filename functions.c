@@ -2,14 +2,16 @@
 #include <stdio.h>
 #include "functions.h"
 
-t_d_list create_empty_list(int max_level) {
-    t_d_list* empty_list = (t_d_list*) malloc(sizeof(t_d_list));
+t_d_list* create_empty_list(int max_level) {
+    t_d_list* empty_list = (t_d_list*) malloc(max_level*sizeof(t_d_list*));
     empty_list->max_level = max_level;
     for (int i=0; i<max_level; i++) {
         empty_list->heads[i] = NULL;
     }
-    return *empty_list;
+    return empty_list;
 }
+
+t_d_list* insert_head(t_d_cell cell);
 
 void displayList(t_d_list l) {
     for(int i=0;i<l.max_level;i++) {

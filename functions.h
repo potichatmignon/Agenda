@@ -9,7 +9,7 @@ typedef struct s_d_list
     int max_level;
 } t_d_list;
 
-t_d_list create_empty_list(int);
+t_d_list* create_empty_list(int);
 
 void displayList(t_d_list l);
 
