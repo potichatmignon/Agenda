@@ -8,3 +8,7 @@ t_d_list create_empty_list(int max_level) {
     empty_list->heads = NULL;
     return *empty_list;
 }
+
+void displayList(t_d_list l) {
+    printf(l.heads[0]);
+}

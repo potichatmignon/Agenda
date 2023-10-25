@@ -4,9 +4,10 @@
 #include <stdlib.h>
 
 int main() {
-    t_d_cell * cell = create_cell(5,2);
-    printf("%d\n",cell->level);
-    printf("%d\n",cell->value);
-
+    t_d_list liste;
+    int val;
+    scanf("Combien de niveau pour la liste : %d",val);
+    liste = create_empty_list(val);
+    printf(liste.heads[0]);
     return 0;
 }
