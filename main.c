@@ -5,11 +5,11 @@
 
 int main() {
 
-    t_d_list liste;
+    t_d_list* liste;
     int val;
     printf("Combien de niveaux pour la liste :");
     scanf("%d",&val);
     liste = create_empty_list(val);
-    displayList(liste);
+    displayList(*liste);
     return 0;
 }
