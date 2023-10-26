@@ -20,12 +20,27 @@ void displayList(t_d_list l) {
 
 void displayLevelList(t_d_list list, int n){
     t_d_cell * temp = list.heads[n];
-    printf("[list->head_%d @-]-->",n);
-    while(temp!=NULL){
-        printf("[%d|@-]-->",temp->value);
-        temp = temp->next[n];
+    t_d_cell * temp_base = list.heads[0];
+    printf("[list->head_%d @-]--",n);
+    while(temp_base!=NULL){
+        if (n>0){
+            if (temp!=temp_base){
+                printf("---------");
+                temp_base = temp_base->next[0];
+            }
+            else{
+                printf(">[%d|@-]--",temp->value);
+                temp = temp->next[n];
+                temp_base = temp_base->next[0];
+            }
+        }
+        else{
+            printf(">[%d|@-]--",temp->value);
+            temp = temp->next[n];
+            temp_base = temp_base->next[0];
+        }
     }
-    printf("NULL\n");
+    printf(">NULL\n");
 }
 
 t_d_cell* insert_cell(t_d_cell * cell, t_d_list *list) {
