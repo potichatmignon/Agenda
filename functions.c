@@ -25,17 +25,17 @@ void displayLevelList(t_d_list list, int n){
     while(temp_base!=NULL){
         if (n>0){
             if (temp!=temp_base){
-                printf("---------");
+                printf("-----------");
                 temp_base = temp_base->next[0];
             }
             else{
-                printf(">[%d|@-]--",temp->value);
+                printf(">[%3d|@-]--",temp->value);
                 temp = temp->next[n];
                 temp_base = temp_base->next[0];
             }
         }
         else{
-            printf(">[%d|@-]--",temp->value);
+            printf(">[%3d|@-]--",temp->value);
             temp = temp->next[n];
             temp_base = temp_base->next[0];
         }
