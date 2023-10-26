@@ -43,10 +43,41 @@ void displayLevelList(t_d_list list, int n){
     printf(">NULL\n");
 }
 
-t_d_cell* insert_cell(t_d_cell * cell, t_d_list *list) {
+void insert_cell(t_d_cell * cell, t_d_list *list) {
     int level = cell->level;
     for(int i=0;i<level;i++){
         cell->next[i] = list->heads[i];
         list->heads[i] = cell;
     }
 }
+
+
+void sort_insert_cell(t_d_cell * cell, t_d_list *list){
+    int level = cell->level;
+    t_d_cell * temp = list->heads[0];
+    t_d_cell * prev = temp;
+
+    if(temp == NULL){
+        insert_cell(cell,list);
+    }
+
+    else{
+        while(temp!=NULL && temp->value < cell->value){
+            prev = temp;
+            temp = temp->next[0];
+        }
+        if(temp==NULL){
+            for(int i=0;i<level;i++) {
+                cell->next[i] = NULL;
+                prev->next[i] = cell;
+            }
+        }
+        else{
+            for(int i=0;i<level;i++) {
+                cell->next[i] = temp;
+                prev->next[i] = cell;
+            }
+        }
+    }
+}
+

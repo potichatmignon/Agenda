@@ -16,5 +16,8 @@ void displayList(t_d_list l);
 
 void displayLevelList(t_d_list,int);
 
-t_d_cell* insert_cell(t_d_cell * cell, t_d_list *list);
+void insert_cell(t_d_cell*, t_d_list*);
+
+void sort_insert_cell(t_d_cell*,t_d_list*);
+
 #endif //AGENDA_FUNCTIONS_H
