@@ -10,6 +10,7 @@ int main() {
     printf("Combien de niveaux pour la liste :");
     scanf("%d",&val);
     liste = create_empty_list(val);
+    displayList(liste);
 
     while(answer != 0){
         printf("Voulez vous insérer une cellule ? (1 pour Oui, 0 pour Non)\n");
@@ -19,6 +20,7 @@ int main() {
             scanf("%d %d",&cell_val ,&niveau);
             t_d_cell * cell = create_cell(cell_val,niveau);
             sort_insert_cell(cell,&liste);
+            displayList(liste);
         }
 
     }
