@@ -20,5 +20,7 @@ void insert_cell(t_d_cell*, t_d_list*);
 
 void sort_insert_cell(t_d_cell*,t_d_list*);
 
-int find_from_zero(t_d_list list, int val);
+int find_from_zero(t_d_list, int);
+
+int find_from_top(t_d_list, int);
 #endif //AGENDA_FUNCTIONS_H

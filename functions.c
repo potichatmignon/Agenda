@@ -98,12 +98,26 @@ void sort_insert_cell(t_d_cell * cell, t_d_list *list) {
 // Return 0 s'il trouve pas  || Return 1 s'il trouve
 int find_from_zero(t_d_list list, int val) {
     t_d_cell * temp = list.heads[0];
-    while (temp->next != NULL) {
-        printf("temp->value= %d \n", temp->value); // Pour le debug
+    while (temp != NULL) {
         if (temp->value == val) {
             return 1;
         }
-        temp = temp->next;
+        temp = temp->next[0];
+    }
+    return 0;
+}
+
+// Return 0 s'il trouve pas  || Return 1 s'il trouve
+int find_from_top(t_d_list list, int val) {
+    t_d_cell * temp;
+    for (int i=list.max_level; i != -1; i--) {
+        temp = list.heads[i];
+        while (temp != NULL) {
+            if (temp->value == val) {
+                return 1;
+            }
+            temp = temp->next;
+        }
     }
     return 0;
 }
