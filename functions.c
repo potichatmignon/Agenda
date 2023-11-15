@@ -53,85 +53,36 @@ void insert_cell(t_d_cell * cell, t_d_list *list) {
 
 
 
-
-/*void sort_insert_cell(t_d_cell * cell, t_d_list *list){
+void sort_insert_cell(t_d_cell * cell, t_d_list *list) {
     int level = cell->level;
-    t_d_cell * temp = list->heads[level-1];
-    t_d_cell * prev = temp;
-
-    if(temp == NULL){
-        printf("caca\n");
+    t_d_cell * temp;
+    t_d_cell * prev;
+    if(list->heads[0]==NULL){
         insert_cell(cell,list);
+        return;
     }
-    else{
-        for(int i=level-1;i>=0;i--){
-            while(temp!=NULL && temp->value < cell->value){
-                prev = temp;
-                temp = temp->next[i];
-                printf("%d\n",i);
-            }
-
-            if(temp == list->heads[i]){
-                printf("heads\n");
-                cell->next[i] = temp;
-                list->heads[i] = cell;
-            }
-            else{
-                if(temp==NULL){
-                    printf("null\n");
-                    cell->next[i] = NULL;
-                    prev->next[i] = cell;
-                    temp = prev;
-                }
-                else{
-                    printf("other\n");
-                    cell->next[i] = temp;
-                    prev->next[i] = cell;
-                    temp = prev;
-                }
-
-            }
-        }
-    }
-}*/
-
-
-
-void sort_insert_cell(t_d_cell * cell, t_d_list *list){
-    int level = cell->level;
-    t_d_cell * temp = list->heads[0];
-    t_d_cell * prev = temp;
-
-    if(temp == NULL){
-        insert_cell(cell,list);
-    }
-
-    else{
-        while(temp!=NULL && temp->value <= cell->value){
+    for(int i=0;i<level;i++){
+        temp = list->heads[i];
+        prev = temp;
+        while(temp!=NULL && temp->value < cell->value){
             prev = temp;
-            temp = temp->next[0];
+            temp = temp->next[i];
         }
         if(temp==NULL){
-            for(int i=0;i<level;i++) {
+            for(int j=0;j<level;j++){
                 cell->next[i] = NULL;
                 prev->next[i] = cell;
             }
         }
         else{
-            if(temp == list->heads[0]){
-                for(int i=0;i<level;i++){
-                    cell->next[i] = list->heads[i];
-                    list->heads[i] = cell;
-                }
+            if(temp==list->heads[i]){
+                cell->next[i] = list->heads[i];
+                list->heads[i] = cell;
             }
             else{
-                for(int i=0;i<level;i++) {
-                    cell->next[i] = temp;
-                    prev->next[i] = cell;
-                }
+                cell->next[i] = temp;
+                prev->next[i] = cell;
             }
-
         }
     }
 }
-
