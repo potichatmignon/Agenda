@@ -22,11 +22,23 @@ void displayLevelList(t_d_list list, int n){
     t_d_cell * temp = list.heads[n];
     t_d_cell * temp_base = list.heads[0];
     printf("[list->head_%d @-]--",n);
+
     while(temp_base!=NULL){
-        if (n>0){
-            if (temp!=temp_base){
-                printf("-----------");
-                temp_base = temp_base->next[0];
+        if(temp == NULL){
+            printf("-----------");
+            temp_base = temp_base->next[0];
+        }
+        else{
+            if (n>0){
+                if (temp!=temp_base){
+                    printf("-----------");
+                    temp_base = temp_base->next[0];
+                }
+                else{
+                    printf(">[%3d|@-]--",temp->value);
+                    temp = temp->next[n];
+                    temp_base = temp_base->next[0];
+                }
             }
             else{
                 printf(">[%3d|@-]--",temp->value);
@@ -34,11 +46,7 @@ void displayLevelList(t_d_list list, int n){
                 temp_base = temp_base->next[0];
             }
         }
-        else{
-            printf(">[%3d|@-]--",temp->value);
-            temp = temp->next[n];
-            temp_base = temp_base->next[0];
-        }
+
     }
     printf(">NULL\n");
 }
@@ -68,16 +76,15 @@ void sort_insert_cell(t_d_cell * cell, t_d_list *list) {
             prev = temp;
             temp = temp->next[i];
         }
-        if(temp==NULL){
-            for(int j=0;j<level;j++){
+        if(temp==list->heads[i]){
+            cell->next[i] = list->heads[i];
+            list->heads[i] = cell;
+        }
+
+        else{
+            if(temp==NULL){
                 cell->next[i] = NULL;
                 prev->next[i] = cell;
-            }
-        }
-        else{
-            if(temp==list->heads[i]){
-                cell->next[i] = list->heads[i];
-                list->heads[i] = cell;
             }
             else{
                 cell->next[i] = temp;
@@ -91,8 +98,8 @@ void sort_insert_cell(t_d_cell * cell, t_d_list *list) {
 // Return 0 s'il trouve pas  || Return 1 s'il trouve
 int find_from_zero(t_d_list list, int val) {
     t_d_cell * temp = list.heads[0];
-    while (temp->value != NULL) {
-        printf("temp->value= %d /// temp", temp->value);
+    while (temp->next != NULL) {
+        printf("temp->value= %d \n", temp->value); // Pour le debug
         if (temp->value == val) {
             return 1;
         }

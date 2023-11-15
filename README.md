@@ -1,5 +1,6 @@
 # Agenda
 
 
+This project's objective is to create an agenda using Linked list in C
 
-prout
+lzes    ebzq    rzbqa arabes
