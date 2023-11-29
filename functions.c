@@ -91,7 +91,6 @@ void sort_insert_cell(t_d_cell * cell, t_d_list *list) {
                 cell->next[i] = temp;
                 prev->next[i] = cell;
             }
-
         }
     }
 }
@@ -153,12 +152,4 @@ t_d_list create_complexity_list(int n) {
         sort_insert_cell(t_cell, &t);
     }
     return t;
-}
-
-t_d_list create_one_complexity_list(int n) {
-    t_d_list t_list = create_empty_list(2);
-    int val_exposant = exposant(2, n);
-    for (int i=0; i<val_exposant; i++) {
-
-    }
 }
