@@ -11,7 +11,6 @@ typedef struct s_d_list
 
 t_d_list create_empty_list(int);
 
-
 void displayList(t_d_list l);
 
 void displayLevelList(t_d_list,int);
@@ -23,4 +22,8 @@ void sort_insert_cell(t_d_cell*,t_d_list*);
 int find_from_zero(t_d_list, int);
 
 int find_from_top(t_d_list, int);
+
+int exposant (int, int);
+
+t_d_list create_complexity_list(int);
 #endif //AGENDA_FUNCTIONS_H

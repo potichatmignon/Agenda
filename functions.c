@@ -51,6 +51,7 @@ void displayLevelList(t_d_list list, int n){
     printf(">NULL\n");
 }
 
+// Insére une cellule en tête de liste
 void insert_cell(t_d_cell * cell, t_d_list *list) {
     int level = cell->level;
     for(int i=0;i<level;i++){
@@ -60,7 +61,7 @@ void insert_cell(t_d_cell * cell, t_d_list *list) {
 }
 
 
-
+// Insére une cellule dans la liste de manière trié et croissante
 void sort_insert_cell(t_d_cell * cell, t_d_list *list) {
     int level = cell->level;
     t_d_cell * temp;
@@ -95,7 +96,7 @@ void sort_insert_cell(t_d_cell * cell, t_d_list *list) {
     }
 }
 
-// Return 0 s'il trouve pas  || Return 1 s'il trouve
+// Cherche une valeur depuis le premier étage de la liste
 int find_from_zero(t_d_list list, int val) {
     t_d_cell * temp = list.heads[0];
     while (temp != NULL) {
@@ -107,17 +108,49 @@ int find_from_zero(t_d_list list, int val) {
     return 0;
 }
 
-// Return 0 s'il trouve pas  || Return 1 s'il trouve
+// Cherche une valeur en partant du plus haut niveau de la liste
 int find_from_top(t_d_list list, int val) {
-    t_d_cell * temp;
-    for (int i=list.max_level; i != -1; i--) {
-        temp = list.heads[i];
-        while (temp != NULL) {
+    for (int i = list.max_level - 1; i >= 0; i--) {
+        t_d_cell *temp = list.heads[i];
+        while (temp != NULL && temp->value <= val) {
             if (temp->value == val) {
                 return 1;
             }
-            temp = temp->next;
+            temp = temp->next[i];
         }
     }
     return 0;
+}
+
+// Retourne a^b
+int exposant (int a, int b) {
+    int temp = a;
+    for(int i=0; i<b-1; i++) {
+        a = a*temp;
+    }
+    return a;
+}
+
+// Retourne une liste de 2^n-1 élements de et de n niveaux
+t_d_list create_complexity_list(int n) {
+    t_d_list t = create_empty_list(n);
+    int val_exposant = exposant(2, n);
+    for (int i=1; i<val_exposant; i++) { // Pour se balader de cellule en cellule
+        int j = 0;
+        int level = 0;
+        while (j<n) { // Tester chaque niveau de la cellule pour avoir son nombre de niveau
+            if (i%2 == 1) {
+                t_d_cell* t_cell = create_cell(i, 1);
+                sort_insert_cell(t_cell, &t);
+                break;
+            }
+            if (i%exposant(2, j)==0) {
+                level += 1;
+            }
+            j += 1;
+        }
+        t_d_cell* t_cell = create_cell(i, level);
+        sort_insert_cell(t_cell, &t);
+    }
+    return t;
 }
