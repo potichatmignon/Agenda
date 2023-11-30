@@ -153,3 +153,26 @@ t_d_list create_complexity_list(int n) {
     }
     return t;
 }
+
+
+/* FONCTION PAS FINIE */
+
+char * scanString(void) {
+    int taille = 10;
+    char *chaine = (char *) malloc(taille * sizeof(char));
+    int i = 0;
+    char character;
+
+    printf("Entrez la chaîne de caractères : ");
+    while((character = getchar())!= '\n') {
+        chaine[i] = character;
+        i++;
+        if (i>=taille){
+            taille += i;
+            chaine = (char*)realloc(chaine, taille*sizeof(char));
+        }
+    }
+    chaine[i] = '\0';
+    return chaine;
+}
+

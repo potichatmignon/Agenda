@@ -4,10 +4,12 @@
 #include <stdlib.h>
 
 int main() {
-
     t_d_list liste;
     int val, answer = 1, niveau,cell_val;
     int val_find;
+    contact name;
+
+
     printf("Créer une liste manuel (1) ou automatique (2): ");
     scanf("%d", &answer);
     if (answer == 1) {
@@ -63,7 +65,5 @@ int main() {
         }
     }
     displayList(liste);
-
-    /*in*/
     return 0;
 }
