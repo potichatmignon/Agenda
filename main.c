@@ -19,8 +19,8 @@ int main() {
     if (answer == 2) {
         printf("Combien de niveaux pour la liste automatique: ");
         scanf("%d", &val);
-        t_d_list t = create_complexity_list(val);
-        displayList(t);
+        liste = create_complexity_list(val);
+        displayList(liste);
     }
 
     while(answer != 0) {
@@ -42,10 +42,10 @@ int main() {
                 printf("Quelle valeur à chercher ? (val)\n");
                 scanf("%d", &val_find);
                 if (find_from_zero(liste, val_find) == 1) {
-                    printf("Valeur trouvée");
+                    printf("Valeur trouvee\n");
                 }
                 else {
-                    printf("Valeur non trouvée\n");
+                    printf("Valeur non trouvee\n");
                 }
             }
             if (answer == 7) {
@@ -54,10 +54,10 @@ int main() {
                 scanf("%d", &val_find);
                 int res = find_from_top(liste, val_find);
                 if (res == 1) {
-                    printf("Valeur trouvée");
+                    printf("Valeur trouvee\n");
                 }
                 else {
-                    printf("Valeur non trouvée\n");
+                    printf("Valeur non trouve ;e\n");
                 }
             }
         }
