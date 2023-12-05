@@ -4,4 +4,4 @@ project(Agenda C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(Agenda
-        main.c functions.h functions.c cell.c cell.h functions.c)
+        main.c functions.h functions.c cell.c cell.h functions.c timer.c timer.h)

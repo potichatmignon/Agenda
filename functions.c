@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "functions.h"
+#include "timer.h"
 
 t_d_list create_empty_list(int max_level) {
     t_d_list list;
@@ -97,27 +98,33 @@ void sort_insert_cell(t_d_cell * cell, t_d_list *list) {
 
 // Cherche une valeur depuis le premier étage de la liste
 int find_from_zero(t_d_list list, int val) {
+
     t_d_cell * temp = list.heads[0];
     while (temp != NULL) {
         if (temp->value == val) {
+
             return 1;
         }
         temp = temp->next[0];
     }
+
     return 0;
 }
 
 // Cherche une valeur en partant du plus haut niveau de la liste
 int find_from_top(t_d_list list, int val) {
+
     for (int i = list.max_level - 1; i >= 0; i--) {
         t_d_cell *temp = list.heads[i];
         while (temp != NULL && temp->value <= val) {
             if (temp->value == val) {
+
                 return 1;
             }
             temp = temp->next[i];
         }
     }
+
     return 0;
 }
 
@@ -157,7 +164,7 @@ t_d_list create_complexity_list(int n) {
 
 /* FONCTION PAS FINIE */
 
-char * scanString(void) {
+char *scanString(void) {
     int taille = 10;
     char *chaine = (char *) malloc(taille * sizeof(char));
     int i = 0;

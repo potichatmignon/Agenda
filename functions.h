@@ -2,6 +2,7 @@
 #ifndef AGENDA_FUNCTIONS_H
 #define AGENDA_FUNCTIONS_H
 #include "cell.h"
+#include "timer.h"
 
 typedef struct s_d_list
 {
@@ -52,7 +53,7 @@ int find_from_zero(t_d_list, int);
 
 int find_from_top(t_d_list, int);
 
-int exposant (int, int);
+int exposant(int, int);
 
 t_d_list create_complexity_list(int);
 
