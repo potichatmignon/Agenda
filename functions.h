@@ -49,9 +49,9 @@ void insert_cell(t_d_cell*, t_d_list*);
 
 void sort_insert_cell(t_d_cell*,t_d_list*);
 
-int find_from_zero(t_d_list, int);
+t_d_cell* find_from_zero(t_d_list, int);
 
-int find_from_top(t_d_list, int);
+t_d_cell* find_from_top(t_d_list, int);
 
 int exposant(int, int);
 

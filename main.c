@@ -4,24 +4,14 @@
 #include <stdlib.h>
 #include <time.h>
 
-clock_t start_timer() {
-    return clock();
-}
-
-double stop_timer(clock_t start) {
-    clock_t end = clock();
-    return ((double)(end - start)) / CLOCKS_PER_SEC;
-}
-
 int main() {
     t_d_list liste;
     int val, answer = 1, niveau,cell_val;
     int val_find;
     contact name;
-    char *time;
-    int res;
-    clock_t start;
-    double duration;
+    t_d_cell* res;
+    clock_t start, end;
+    double cpu_time_used;
 
     printf("Créer une liste manuel (1) ou automatique (2):");
     scanf("%d", &answer);
@@ -39,7 +29,7 @@ int main() {
     }
 
     while(answer != 0) {
-        printf("Voulez vous insérer une cellule ? (1 pour Oui, 0 pour Non)\n");
+        printf("\nVoulez vous insérer une cellule ? (1 pour Oui, 0 pour Non)\n");
         printf("Ou vous voulez chercher une cellule ? (2)\n");
         printf("ou comparer deux algorithmes de recherche (3):\n");
         scanf("%d", &answer);
@@ -83,23 +73,25 @@ int main() {
             scanf("%d", &val_find);
 
             printf("Lancement de l'algorithme de recherche par la liste zero\n");
-            start = start_timer();
+            start = clock();
             res = find_from_zero(liste, val_find);
-            duration = stop_timer(start);
-            if (res == 1) {
-                printf("Valeur trouvee en %f\n", duration);
+            end = clock();
+            cpu_time_used = (double)(end - start) / CLOCKS_PER_SEC;
+            if (res != 0) {
+                printf("Valeur trouvee en %f secondes", cpu_time_used);
             }
             else {
                 printf("Valeur non trouvee\n");
             }
 
 
-            printf("Lancement de l'algorithme de recherche par la liste du haut\n");
-            start = start_timer();
+            printf("\nLancement de l'algorithme de recherche par la liste du haut\n");
+            start = clock();
             res = find_from_top(liste, val_find);
-            duration = stop_timer(start);
-            if (res == 1) {
-                printf("Valeur trouvee en %f\n", duration);
+            end = clock();
+            cpu_time_used = (double)(end - start) / CLOCKS_PER_SEC;
+            if (res != 0) {
+                printf("Valeur trouvee en %f secondes", cpu_time_used);
             }
             else {
                 printf("Valeur non trouvee\n");
